@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { clearData } from '../Slices/userSlice'
-import {FaBars, FaCross, FaPhoenixFramework} from "react-icons/fa"
+import {FaBars} from "react-icons/fa"
 // import Logo from "../assets/SaveWithOdunLogo.png"
 import Logo from "../assets/ODUN.jpg"
 import {clsx} from "clsx"
-import { FcCloseUpMode } from 'react-icons/fc'
 import { IoMdClose } from 'react-icons/io'
 
 function Navbar() {
@@ -17,6 +16,15 @@ function Navbar() {
   const dispatch = useDispatch()
   const isAuth = Boolean(token)
 
+  useEffect(() => {
+    Array.from(document.querySelector(".close-nav").children).map(item => {
+      item.addEventListener("click", () => {
+          setVisible(false)
+        })
+    })
+  }, [])
+  
+      
   return (
     <div className="border-b">
         <div className="flex justify-between w-[90%] m-auto py-2 md:py-5 items-center">
@@ -34,9 +42,10 @@ function Navbar() {
               isAuth ?
               <>
                 {/* <Link to={"/"}><li className='hover:bg-theme-color hover:text-white px-3 py-2 rounded-lg transition-all duration-500'>Home</li></Link> */}
-                <Link to={"/auth/signup"}><li className='bg-theme-color px-3 py-2 hover:bg-white hover:text-black transition-all duration-500 text-white rounded-lg'
+                <Link to={"/auth/signup"}><li className='bg-theme-color px-3 py-2 hover:bg-white hover:text-black transition-all border shadow-sm duration-500 text-white rounded-lg'
                 onClick={() => {
-                  isLoggingOut(true)
+                  isLoggingOut(true);
+
                   setTimeout(() => {
                     isLoggingOut(false)
                     dispatch(clearData())
@@ -65,14 +74,14 @@ function Navbar() {
             <IoMdClose onClick={() => setVisible(false)} size={30} className='absolute top-5 right-5' />
             <div className="px-6 py-16">
               <ul>
-                <div className='flex flex-col font-medium gap-5 pb-10 md:text-base text-sm'>
+                <div className='flex flex-col font-medium gap-5 pb-10 md:text-base text-sm close-nav'>
                   <Link to={"/"} className='hover:pl-4 transition-all duration-500'>Home</Link>
                   <Link to={"/"} className='hover:pl-4 transition-all duration-500'>Services</Link>
                   <Link to={"/"} className='hover:pl-4 transition-all duration-500'>About Us</Link>
                   <Link to={"/"} className='hover:pl-4 transition-all duration-500'>Customer Support</Link>
                 </div>
               </ul>
-              <ul>
+              <ul className='w-[70%]'>
               {/* <ul className='hidden lg:flex gap-8 text-lg font-medium items-center'> */}
                   {
                     isAuth ?
@@ -80,7 +89,7 @@ function Navbar() {
                       {/* <Link to={"/"}><li className='hover:bg-theme-color hover:text-white px-3 py-2 rounded-lg transition-all duration-500'>Home</li></Link> */}
                       <Link to={"/auth/signup"}><li className='bg-theme-color px-3 py-2 hover:bg-white hover:text-black transition-all duration-500 text-white rounded-lg'
                       onClick={() => {
-                        isLoggingOut(true)
+                        isLoggingOut(true);
                         setTimeout(() => {
                           isLoggingOut(false)
                           dispatch(clearData())

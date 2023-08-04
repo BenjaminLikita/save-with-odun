@@ -14,14 +14,16 @@ function UserHome() {
       console.log(token);
       axios.post("http://localhost:5000/auth/", {token}).then(res => {
         if(res.data){
-          console.log(res.data);
+          // console.log(res.data);
           dispatch(setUserName(res.data.first_name))
           dispatch(setEmail(res.data.email))
         }
-      }).catch(err => console.log(err))
-    } catch (err) {
-      console.log(err);      
-    }
+      }).catch(err => err)
+      // }).catch(err => console.log(err))
+    } catch (err) { return err };
+    // } catch (err) {
+    //   console.log(err);      
+    // }
   }, [])
   return (
     <>
