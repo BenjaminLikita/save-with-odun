@@ -56,7 +56,7 @@ function Login() {
     <div className="flex justify-between sm:w-[90%] w-[90%] m-auto drop-shadow-sm items-center">
         <ToastContainer />
         <div className='sm:w-full md:w-[90%] w-full m-auto'>
-            <div className='grid grid-flow-col grid-cols-2 gap-20 items-start pt-10'>
+            <div className='grid md:grid-cols-2 md:gap-20 items-start pt-10'>
                 <div>
                     <h1 className="md:text-2xl sm:text-xl py-1 font-medium">Welcome Back!</h1>
                     <p className="text-gray-500 md:text-sm sm:text-xs">Welcome back! Please enter your details!</p>
@@ -84,12 +84,12 @@ function Login() {
                             <button className='text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]'>Sign In</button>
                         <button className='w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
                 
-                        <a href={"/auth/signup"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
+                        <Link to={"/auth/signup"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
                             Dont have an account? Sign Up
-                        </a>
+                        </Link>
                     </form>
                 </div>
-                <img src={img} className='h-[70vh] rounded-md shadow-sm' alt="" />
+                <img src={img} className='w-[100%] h-[40vw] rounded-md shadow-sm' alt="" />
             </div>
         </div>
     </div>

@@ -57,7 +57,7 @@ function SignUp() {
             <ToastContainer />
         <div className='w-full m-auto'>
 
-            <div className="grid grid-flow-col grid-cols-2 gap-20 items-start pt-10">
+            <div className="grid md:grid-cols-2 md:gap-20 items-start pt-10">
                 <div>
                     <h1 className="text-2xl font-medium">Create an Account</h1>
                     <p className="text-sm text-gray-500">Start your saving journey</p>
@@ -96,7 +96,7 @@ function SignUp() {
                         </a>
                     </form>
                 </div>
-                <img src={img} className="h-[75vh] rounded-md shadow-sm" alt="" />
+                <img src={img} className="w-[100%] h-[40vw] rounded-md shadow-sm pb-10" alt="" />
             </div>
         </div>
     </div>

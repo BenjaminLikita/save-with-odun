@@ -9,6 +9,7 @@ import SignUp from './Pages/SignUp'
 import Error from './Pages/Error'
 import Logo from "./assets/ODUN.jpg"
 import UserHome from './Pages/UserHome'
+import Footer from './components/Footer'
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path='/auth/signUp' element={isAuth ? <Navigate to={"/user"} /> : <SignUp />} /> 
         <Route path='*' element={<Error />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
