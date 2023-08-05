@@ -50,7 +50,7 @@ function Login() {
 
   return (
     <>
-    <Link to={"/"}>
+    <Link to={"/"} className="inline-block">
         <img src={logo} className='h-20 pl-[3vw]' alt="" />
     </Link>
     <div className="flex justify-between sm:w-[90%] w-[90%] m-auto drop-shadow-sm items-center">
