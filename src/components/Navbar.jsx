@@ -66,7 +66,7 @@ function Navbar() {
           <FaBars size={30} onClick={() => setVisible(true)} className="hover:text-theme-color cursor-pointer transition-all duration-700 md:hidden block" />
         </div>
 
-        <div className={clsx("absolute bg-white w-[50%] md:w-[30%] h-[100%] z-30 transition-all duration-500 border shadow-lg", {
+        <div className={clsx("absolute bg-white w-[60%] md:w-[30%] h-[100%] z-30 transition-all duration-500 border shadow-lg", {
           "top-0 right-0": visible,
           "-right-[100%]": !visible,
         })}>
@@ -81,7 +81,7 @@ function Navbar() {
                   <Link to={"/"} className='hover:pl-4 transition-all duration-500'>Customer Support</Link>
                 </div>
               </ul>
-              <ul className='w-[70%]'>
+              <ul className='w-[70%] flex flex-col gap-2'>
               {/* <ul className='hidden lg:flex gap-8 text-lg font-medium items-center'> */}
                   {
                     isAuth ?

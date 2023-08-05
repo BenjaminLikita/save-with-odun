@@ -30,7 +30,7 @@ function Home() {
           </div>
         </div>
         <img src={bgImg} className='pt-10' alt="" />
-      <div className="grid grid-cols-2 gap-[8%] my-10 mb-20">
+      <div className="grid md:grid-cols-2 gap-[2%] md:gap-[8%] py-20">
         <Card title={"Education Targetbox"} icon={<FaBookOpen color='#074C0B' size={30}/>} text={
           "The goal here is to save for with your school fees in view. Plan ahead by starting to keep money for your next payment."
         }/>

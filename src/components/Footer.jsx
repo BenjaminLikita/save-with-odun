@@ -13,11 +13,12 @@ function Footer() {
     // })
   })
   return (
-    <footer className='border-t bg-theme-color text-white'>
+    <footer className='border-t bg-theme-color text-white relative'>
       <div className="flex flex-col">
         <img src={logo} className='w-10 my-5 mx-12' alt="" />
-        <div className="w-[90%] m-auto py-5 text-xs">
-          <div className="flex items-start justify-between">
+        <div className="w-[80%] md:w-[90%] m-auto py-5 text-xs">
+          {/* <div className="flex items-start justify-between"> */}
+          <div className="grid grid-cols-2 md:grid-cols-4">
             <div>
               <h1 className="py-5 font-semibold text-lg">Company</h1>
               <ul className='flex flex-col gap-2 link-tr'>
