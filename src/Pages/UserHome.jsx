@@ -18,6 +18,29 @@ import { FiLogOut } from 'react-icons/fi'
 function UserHome() {
   
   const {userName, email, token} = useSelector(state => state.user)
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+
+
+  }
+  
+  useEffect(() => {
+    window.addEventListener("resize", detectSize)
+    console.log(windowDimension);
+
+    return () => {
+      window.removeEventListener("resize", detectSize)
+    }
+  }, [windowDimension])
+
   const dispatch = useDispatch()
   const currentDate = new Date()
   const date = currentDate.getDate()
@@ -120,8 +143,8 @@ function UserHome() {
           </div>
           
           <div className="pt-5">
-            <div className='bg-[#064F0833] rounded-2xl py-5 px-7'>
-              <LineChart width={600} height={200} data={data}>
+            <div className='bg-[#064F0833] rounded-2xl py-5 px-7 pl-0'>
+              <LineChart width={windowDimension.winWidth <= 900 ? windowDimension.winWidth - 400 : 520} height={250} data={data}>
                 <Line type={"monotone"} dataKey={"Saved"} stroke='#064F99' strokeWidth={1}/>
                 <CartesianGrid stroke='#999' />
                 <XAxis dataKey={"week"} />

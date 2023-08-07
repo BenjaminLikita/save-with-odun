@@ -100,7 +100,7 @@ function SignUp() {
                         </Link>
                     </form>
                 </div>
-                <img src={img} className="w-[100%] h-[40vw] rounded-md shadow-sm pb-10" alt="" />
+                <img src={img} className="hidden md:block w-[100%] h-[40vw] rounded-md shadow-sm pb-10" alt="" />
             </div>
         </div>
     </div>
