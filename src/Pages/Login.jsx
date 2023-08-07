@@ -24,21 +24,25 @@ function Login() {
         password: yup.string().min(8, "Must be at least 8 characters").required()
     })
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register, handleSubmit, formState: {errors}, reset} = useForm({
         resolver: yupResolver(formSchema)
     })
 
     const submit = (formData) => {
 
         try{
-            axios.post("http://localhost:5000/auth/login", formData).then(res => {
+            axios.post("http://13.36.169.10/api/auth/login", formData).then(res => {
                 if(res.data.token){
+                    reset()
                     toast("Logged In Successfully!", {type: "success"})
                     setTimeout(() => {
                         dispatch(setToken(res.data.token))
                     }, 1000)
                 }
-                console.log(res.data);
+                else if(res.data.message){
+                    reset()
+                    toast(res.data.message, {type: "error"});
+                }
             })
         }
         catch(err){
@@ -50,11 +54,11 @@ function Login() {
 
   return (
     <>
+    <ToastContainer />
     <Link to={"/"} className="inline-block">
         <img src={logo} className='h-20 pl-[3vw]' alt="" />
     </Link>
     <div className="flex justify-between sm:w-[90%] w-[90%] m-auto drop-shadow-sm items-center">
-        <ToastContainer />
         <div className='sm:w-full md:w-[90%] w-full m-auto'>
             <div className='grid md:grid-cols-2 md:gap-20 items-start pt-10'>
                 <div>

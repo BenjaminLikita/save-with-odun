@@ -13,7 +13,7 @@ function Footer() {
     // })
   })
   return (
-    <footer className='border-t bg-theme-color text-white relative'>
+    <footer className='border-t mt-5 bg-theme-color text-white relative'>
       <div className="flex flex-col">
         <img src={logo} className='w-10 my-5 mx-12' alt="" />
         <div className="w-[80%] md:w-[90%] m-auto py-5 text-xs">

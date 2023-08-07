@@ -68,7 +68,7 @@ function Navbar() {
 
         <div className={clsx("absolute bg-white w-[60%] md:w-[30%] h-[100%] z-30 transition-all duration-500 border shadow-lg", {
           "top-0 right-0": visible,
-          "-right-[100%]": !visible,
+          "-right-[100%] top-0": !visible,
         })}>
           <div className="relative">
             <IoMdClose onClick={() => setVisible(false)} size={30} className='absolute top-5 right-5' />

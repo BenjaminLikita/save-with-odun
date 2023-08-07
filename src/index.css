@@ -6,6 +6,11 @@
 body{
   overflow-x: hidden;
 }
+
+.active{
+  background-color: #329F38;
+  color: white;
+}
 /* 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
