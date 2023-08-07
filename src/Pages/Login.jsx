@@ -43,10 +43,14 @@ function Login() {
                     reset()
                     toast(res.data.message, {type: "error"});
                 }
+            }).catch(err => {
+                if(err.message === "Network Error"){
+                    toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
+                }
             })
         }
         catch(err){
-
+            
         }
     
         console.log(formData);

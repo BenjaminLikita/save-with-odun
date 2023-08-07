@@ -42,7 +42,11 @@ function SignUp() {
                     reset()
                     toast(res.data.message, {type: "error", autoClose: 2000})
                 }
-            }).catch(err => console.log(err))
+            }).catch(err => {
+                if(err.message === "Network Error"){
+                    toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
+                }
+            })
         } catch (error) {
             console.log("ERROR: " + error);
         }
