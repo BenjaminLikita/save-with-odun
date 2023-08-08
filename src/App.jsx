@@ -10,6 +10,7 @@ import Error from './Pages/Error'
 import Logo from "./assets/ODUN.jpg"
 import UserHome from './Pages/UserHome'
 import Footer from './components/Footer'
+import TargetBoxes from './Pages/TargetBoxes'
 
 
 
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/user' element={isAuth ? <UserHome /> : <Navigate to={"/auth/login"} />} />
+        <Route path='/user/my-target-boxes' element={isAuth ? <TargetBoxes /> : <Navigate to={"/auth/login"} />} />
         <Route path='/auth/login' element={isAuth ? <Navigate to={"/user"} /> : <Login />} />
         <Route path='/auth/signUp' element={isAuth ? <Navigate to={"/user"} /> : <SignUp />} /> 
         <Route path='*' element={<Error />} />

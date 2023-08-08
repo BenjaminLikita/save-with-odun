@@ -5,11 +5,23 @@
 
 body{
   overflow-x: hidden;
+  position: relative;
 }
 
 .active{
   background-color: #329F38;
   color: white;
+}
+.overflow-hidden{
+  overflow-x: hidden;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+  display: none;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
 }
 /* 
 :root {

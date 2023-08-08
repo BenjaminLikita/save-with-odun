@@ -31,9 +31,8 @@ function Login() {
     const submit = (formData) => {
 
         try{
-            axios.post("http://13.36.169.10/api/auth/login", formData, {proxy: {
-                protocol: "http"
-            }}).then(res => {
+            // axios.post("http://13.36.169.10/api/auth/login", formData).then(res => {
+            axios.post("http://localhost:5000/auth/login", formData).then(res => {
                 if(res.data.token){
                     reset()
                     toast("Logged In Successfully!", {type: "success"})

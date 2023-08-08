@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearData, setEmail, setUserName } from '../Slices/userSlice'
 import Navbar from '../components/Navbar'
-import logo from "../assets/ODUN.jpg"
 import { Link, NavLink } from 'react-router-dom'
 import { AreaChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { FaPlus } from 'react-icons/fa'
 import { BiSolidDashboard, BiSearch, BiBell } from 'react-icons/bi'
-import { TbPigMoney, TbHistory } from 'react-icons/tb'
+import { TbPigMoney, TbHistory, TbTarget } from 'react-icons/tb'
 import { GiTakeMyMoney } from 'react-icons/gi'
 import { SlSettings } from 'react-icons/sl'
 import { FiLogOut } from 'react-icons/fi'
+import UserNav from '../components/UserNav'
 
 // TBPIGMONEY
 
@@ -46,7 +46,7 @@ function UserHome() {
   const date = currentDate.getDate()
   const month = currentDate.getMonth()
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  const [loggingOut, isLoggingOut] = useState(false)
+  
 
   const data = [
     {Saved: 11, week: 1},
@@ -64,7 +64,8 @@ function UserHome() {
   ]
   useEffect(() => {
     try {
-      axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
+      // axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
+      axios.post("http://localhost:5000/auth/", {token}).then(res => {
         if(res.data){
           // console.log(res.data);
           dispatch(setUserName(res.data.first_name))
@@ -82,30 +83,10 @@ function UserHome() {
     {/* <Navbar /> */}
       {/* <div className="flex items-center justify-between"> */}
       <div className="grid gap-10 items-start grid-cols-3">
-        <div className='sticky top-0'>
-        {/* <div className='outline-dashed outline-2 sticky top-0'> */}
-          <img src={logo} className='h-20' alt="" />
-          <div className="pt-10 flex flex-col gap-4">
-            <NavLink to={"/user"} className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><BiSolidDashboard />Dashboard</NavLink>
-            <NavLink to={"/user/mysavings"} className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><TbPigMoney />My Savings</NavLink>
-            <NavLink to={"/"} className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><GiTakeMyMoney />My Investments</NavLink>
-            <NavLink to={"/"} className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><TbHistory />History</NavLink>
-            <NavLink to={"/"} className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><SlSettings />Settings</NavLink>
-            <NavLink to={"/"} onClick={(e) => {
-                e.preventDefault()
-                console.log("Logging Out");
-                isLoggingOut(true);
-                setTimeout(() => {
-                  isLoggingOut(false)
-                  dispatch(clearData())
-                }, 2000)
-              }}
-              className='flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 '><FiLogOut />{loggingOut ? "Logging Out" : "Log Out"}</NavLink>
-          </div>
-        </div>
+        <UserNav />
         {/* <div className='flex flex-col col-span-2 outline-dashed outline-2'> */}
         <div className='flex flex-col col-span-2'>
-            <div className='flex items-center py-4'>
+            <div className='flex items-center py-4 bg-[#F3F8F0] px-3 rounded-2xl shadow-sm'>
               <div className='flex items-center gap-3'>
                 <div className='w-[50px] h-[50px] rounded-full bg-gray-400'></div>
                 <div className='border-r-[1.5px] pr-8 border-gray-700'>
@@ -121,7 +102,7 @@ function UserHome() {
                 <input type="search" className='border rounded-3xl py-2 px-5 pl-10 focus:outline outline-theme-color outline-1' name="" id="" placeholder={'Search'} />
               </div>
 
-              <div className='ml-10 relative cursor-pointer rounded-full p-1 hover:bg-theme-lighter transition-all duration-500 hover:text-white'>
+              <div className='relative cursor-pointer rounded-full p-1 hover:bg-theme-lighter transition-all duration-500 hover:text-white'>
                 <span className='absolute px-1 rounded-full bg-red-500 text-xs font-medium top-[-3px] right-0'>3</span>
                 <BiBell size={28}/>
               </div>
@@ -129,11 +110,11 @@ function UserHome() {
             </div>
           
           <div className="pt-5">
-            <div className='bg-[#064F0833] rounded-2xl py-5 px-7'>
+            <div className='bg-[#F3F8F0] rounded-2xl py-5 px-7 shadow'>
               {/* <div className="flex justify-between items-center outline-dashed outline-2 font-medium"> */}
               <div className="flex justify-between items-center font-medium">
                 <h1>Account Balance</h1>
-                <button className='bg-theme-lighter text-theme-color flex items-center gap-2 rounded-md shadow-sm p-2 transition-all duration-700 hover:bg-white'><FaPlus />DEPOSIT</button>
+                <button className='bg-theme-lighter text-white hover:text-black flex items-center gap-2 rounded-md shadow-sm p-2 transition-all duration-700 hover:bg-white'><FaPlus />DEPOSIT</button>
               </div>
               <h1 className='pt-5 text-theme-color font-semibold text-xl'>₦300,000.54</h1>
               <div className='pt-10 flex justify-end'>
@@ -143,8 +124,8 @@ function UserHome() {
           </div>
           
           <div className="pt-5">
-            <div className='bg-[#064F0833] rounded-2xl py-5 px-7 pl-0'>
-              <LineChart width={windowDimension.winWidth <= 900 ? windowDimension.winWidth - 400 : 520} height={250} data={data}>
+            <div className='bg-[#F3F8F0] rounded-2xl py-5 px-7 pl-0 shadow'>
+              <LineChart width={windowDimension.winWidth < 1200 ? windowDimension.winWidth - 450 : 700} height={250} data={data}>
                 <Line type={"monotone"} dataKey={"Saved"} stroke='#064F99' strokeWidth={1}/>
                 <CartesianGrid stroke='#999' />
                 <XAxis dataKey={"week"} />
