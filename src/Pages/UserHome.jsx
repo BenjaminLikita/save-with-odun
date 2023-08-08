@@ -34,7 +34,6 @@ function UserHome() {
   
   useEffect(() => {
     window.addEventListener("resize", detectSize)
-    console.log(windowDimension);
 
     return () => {
       window.removeEventListener("resize", detectSize)
@@ -64,8 +63,7 @@ function UserHome() {
   ]
   useEffect(() => {
     try {
-      // axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
-      axios.post("http://localhost:5000/auth/", {token}).then(res => {
+      axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
         if(res.data){
           dispatch(setUserName(res.data.first_name))
           dispatch(setEmail(res.data.email))

@@ -21,7 +21,6 @@ function UserNav() {
     let href = window.location.href
     const index = href.lastIndexOf("/")
     href = href.slice(index)
-    console.log(href);
 
     const [pageWidth, setPageWidth] = useState(window.innerWidth)
 
@@ -31,7 +30,6 @@ function UserNav() {
     
     useEffect(() => {
       window.addEventListener("resize", setWidth)
-      console.log(pageWidth);
     }, [pageWidth])
 
   return (
