@@ -9,10 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import img from "../assets/signup.png"
 import logo from "../assets/ODUN.jpg"
 import {FcGoogle} from "react-icons/fc"
+import clsx from 'clsx'
+import { TailSpin } from 'react-loader-spinner'
 
 function SignUp() {
 
     const navigate = useNavigate()
+    const [signingIn, isSigningIn] = useState(false)
     
     const formSchema = yup.object().shape({
         full_name: yup.string().required("Please Provide your Full Name"),
@@ -29,11 +32,12 @@ function SignUp() {
 
     const submit = async (formData) => {
         try {
-            // console.log(formData);
+            isSigningIn(true)
             axios.post("http://13.36.169.10/api/auth/signup", formData).then(res => {
                 if(res.data.msg){
                     reset()
                     setTimeout(() =>{
+                        isSigningIn(false)
                         navigate("/auth/login")
                     }, 2000)
                     toast(res.data.msg, {type: "success", autoClose: 2000});
@@ -42,13 +46,9 @@ function SignUp() {
                     reset()
                     toast(res.data.message, {type: "error", autoClose: 2000})
                 }
-            }).catch(err => {
-                if(err.message === "Network Error"){
-                    toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
-                }
-            })
+            }).catch(err => err)
         } catch (error) {
-            console.log("ERROR: " + error);
+            // console.log("ERROR: " + error);
         }
     }
 
@@ -93,7 +93,11 @@ function SignUp() {
                         </div>
                         <p className='text-gray-500'>Must be at least 8 Characters</p>
                     
-                        <button className='text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]'>Create Account</button>
+                        <button className={clsx('text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
+                                "flex justify-center": signingIn
+                            })}>
+                            {signingIn ? <TailSpin height={30} width={30} color='#ccc' /> : "Sign Up"}
+                            </button>
                         <button className='w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
                         <Link to={"/auth/login"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
                             Already have an account? Log In

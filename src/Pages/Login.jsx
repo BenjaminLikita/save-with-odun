@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as yup from "yup"
 import {useForm} from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,12 +11,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import img from "../assets/login.png"
 import logo from "../assets/ODUN.jpg"
 import { FcGoogle } from 'react-icons/fc'
+import { TailSpin } from 'react-loader-spinner'
+import clsx from 'clsx'
+
 
 
 function Login() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [loggingIn, isLogginIn] = useState(false)
 
     const formSchema = yup.object().shape({
         email: yup.string().email().required("Please insert a valid email"),
@@ -28,14 +32,15 @@ function Login() {
     })
 
     const submit = (formData) => {
+        isLogginIn(true)
 
         try{
             axios.post("http://13.36.169.10/api/auth/login", formData).then(res => {
-            // axios.post("http://localhost:5000/auth/login", formData).then(res => {
                 if(res.data.token){
                     reset()
                     toast("Logged In Successfully!", {type: "success"})
                     setTimeout(() => {
+                        isLogginIn(false)
                         dispatch(setToken(res.data.token))
                     }, 1000)
                 }
@@ -89,7 +94,11 @@ function Login() {
                                     Forgot Password?
                                 </Link>
                             </div>
-                            <button className='text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]'>Sign In</button>
+                            <button className={clsx('text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
+                                "flex justify-center": loggingIn
+                            })}>
+                            {loggingIn ? <TailSpin height={30} width={30} color='#ccc' /> : "Sign In"}
+                            </button>
                         <button className='w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
                 
                         <Link to={"/auth/signup"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
