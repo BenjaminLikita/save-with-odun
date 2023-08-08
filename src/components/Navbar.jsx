@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { clearData } from '../Slices/userSlice'
 import {FaBars} from "react-icons/fa"
-// import Logo from "../assets/SaveWithOdunLogo.png"
 import Logo from "../assets/ODUN.jpg"
 import {clsx} from "clsx"
 import { IoMdClose } from 'react-icons/io'
@@ -41,7 +40,6 @@ function Navbar() {
             {
               isAuth ?
               <>
-                {/* <Link to={"/"}><li className='hover:bg-theme-color hover:text-white px-3 py-2 rounded-lg transition-all duration-500'>Home</li></Link> */}
                 <Link to={"/auth/signup"}><li className='bg-theme-color px-3 py-2 hover:bg-white hover:text-black transition-all border shadow-sm duration-500 text-white rounded-lg'
                 onClick={() => {
                   isLoggingOut(true);

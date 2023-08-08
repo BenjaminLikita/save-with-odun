@@ -31,32 +31,8 @@ function UserNav() {
       console.log(pageWidth);
     }, [pageWidth])
 
-    // const [windowDimension, detectHW] = useState({
-    //   winWidth: window.innerWidth,
-    //   winHeight: window.innerHeight,
-    // })
-  
-    // const detectSize = () => {
-    //   detectHW({
-    //     winWidth: window.innerWidth,
-    //     winHeight: window.innerHeight,
-    //   })
-  
-  
-    // }
-    
-    // useEffect(() => {
-    //   window.addEventListener("resize", detectSize)
-    //   console.log(windowDimension);
-  
-    //   return () => {
-    //     window.removeEventListener("resize", detectSize)
-    //   }
-    // }, [windowDimension])
-
   return (
     <div className='sticky top-0 bg-[#F3F8F0] rounded-2xl shadow-sm px-3 pt-1 pb-3'>
-    {/* <div className='outline-dashed outline-2 sticky top-0'> */}
       <img src={logo} className='h-20' alt="" />
       <div className="pt-10 flex flex-col gap-4">
         <Link to={"/user"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {

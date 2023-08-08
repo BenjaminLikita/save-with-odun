@@ -67,24 +67,16 @@ function UserHome() {
       // axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
       axios.post("http://localhost:5000/auth/", {token}).then(res => {
         if(res.data){
-          // console.log(res.data);
           dispatch(setUserName(res.data.first_name))
           dispatch(setEmail(res.data.email))
         }
       }).catch(err => err)
-      // }).catch(err => console.log(err))
     } catch (err) { return err };
-    // } catch (err) {
-    //   console.log(err);      
-    // }
   }, [])
   return (
     <div className='w-[90%] m-auto'>
-    {/* <Navbar /> */}
-      {/* <div className="flex items-center justify-between"> */}
       <div className="grid gap-10 items-start grid-cols-3">
         <UserNav />
-        {/* <div className='flex flex-col col-span-2 outline-dashed outline-2'> */}
         <div className='flex flex-col col-span-2'>
             <div className='flex items-center py-4 bg-[#F3F8F0] px-3 rounded-2xl shadow-sm'>
               <div className='flex items-center gap-3'>
@@ -111,7 +103,6 @@ function UserHome() {
           
           <div className="pt-5">
             <div className='bg-[#F3F8F0] rounded-2xl py-5 px-7 shadow'>
-              {/* <div className="flex justify-between items-center outline-dashed outline-2 font-medium"> */}
               <div className="flex justify-between items-center font-medium">
                 <h1>Account Balance</h1>
                 <button className='bg-theme-lighter text-white hover:text-black flex items-center gap-2 rounded-md shadow-sm p-2 transition-all duration-700 hover:bg-white'><FaPlus />DEPOSIT</button>
