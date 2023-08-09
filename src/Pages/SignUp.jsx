@@ -33,7 +33,8 @@ function SignUp() {
     const submit = async (formData) => {
         try {
             isSigningIn(true)
-            axios.post("http://13.36.169.10/api/auth/signup", formData).then(res => {
+            // axios.post("http://13.36.169.10/api/auth/signup", formData).then(res => {
+            axios.post("http://benjaminlikita.pythonanywhere.com/auth/signup", formData).then(res => {
                 if(res.data.msg){
                     reset()
                     setTimeout(() =>{
