@@ -36,7 +36,7 @@ function Login() {
 
         try{
             // axios.post("http://13.36.169.10/api/auth/login", formData)
-            axios.post("http://benjaminlikita.pythonanywhere.com/auth/login", formData)
+            axios.post("https://benjaminlikita.pythonanywhere.com/auth/login", formData)
             .then(res => {
                 if(res.data.token){
                     reset()
