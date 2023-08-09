@@ -51,7 +51,6 @@ function SignUp() {
             })
         } catch (error) {
             isSigningIn(false)
-            // console.log("ERROR: " + error);
         }
     }
 

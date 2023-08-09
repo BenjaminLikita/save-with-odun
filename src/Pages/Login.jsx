@@ -51,13 +51,10 @@ function Login() {
                 }
             }).catch(err => {
                 isLogginIn(false)
-                // if(err.message === "Network Error"){
-                //     toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
-                // }
             })
         }
         catch(err){
-            
+            isLogginIn(false)
         }
     
         console.log(formData);
