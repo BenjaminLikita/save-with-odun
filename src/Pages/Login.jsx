@@ -45,13 +45,15 @@ function Login() {
                     }, 1000)
                 }
                 else if(res.data.message){
+                    isLogginIn(false)
                     reset()
                     toast(res.data.message, {type: "error"});
                 }
             }).catch(err => {
-                if(err.message === "Network Error"){
-                    toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
-                }
+                isLogginIn(false)
+                // if(err.message === "Network Error"){
+                //     toast("Connect to the Internet and Try again", {type: "error", autoClose: 1500})
+                // }
             })
         }
         catch(err){
@@ -73,7 +75,7 @@ function Login() {
                 <div>
                     <h1 className="md:text-2xl sm:text-xl py-1 font-medium">Welcome Back!</h1>
                     <p className="text-gray-500 md:text-sm sm:text-xs">Welcome back! Please enter your details!</p>
-                    <form onSubmit={handleSubmit(submit)} className='py-8'>
+                    <form onSubmit={handleSubmit(submit)} className='py-8 pb-3'>
                         <div className='py-3'>
                             <label htmlFor="" className='block text-xl pb-2'>Email:</label>
                             <input type="text" placeholder='Enter your email' className='border w-full p-2 rounded-lg' {...register("email")}/>
@@ -94,17 +96,17 @@ function Login() {
                                     Forgot Password?
                                 </Link>
                             </div>
-                            <button className={clsx('text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
+                            <button className={clsx('text-center border shadow-sm w-full py-3  rounded-xl text-white font-medium mb-0 my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
                                 "flex justify-center": loggingIn
                             })}>
                             {loggingIn ? <TailSpin height={30} width={30} color='#ccc' /> : "Sign In"}
                             </button>
-                        <button className='w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
+                    </form>
+                        <button className='mt-0 w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
                 
                         <Link to={"/auth/signup"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
                             Dont have an account? Sign Up
                         </Link>
-                    </form>
                 </div>
                 <img src={img} className='hidden md:block w-[100%] h-[40vw] rounded-md shadow-sm' alt="" />
             </div>

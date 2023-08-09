@@ -43,11 +43,16 @@ function UserNav() {
         <Link to={"/user/my-target-boxes"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {
             "active": href === "/my-target-boxes"
         })}><TbTarget />My TargetBoxes</Link>
-        <Link to={"/"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ')}><TbPigMoney />My Savings</Link>
-        <Link to={"/"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ')}><GiTakeMyMoney />My Investments</Link>
-        <Link to={"/"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ')}><TbHistory />History</Link>
-        <Link to={"/"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ')}><SlSettings />Settings</Link>
-        <Link to={"/"} onClick={(e) => {
+        <Link to={"/user/investments"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {
+          "active": href === "/investments"
+        })}><GiTakeMyMoney />My Investments</Link>
+        <Link to={"/user/history"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {
+          "active": href === "/history"
+        })}><TbHistory />History</Link>
+        <Link to={"/user/settings"} className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {
+          "active": href === "/settings"
+        })}><SlSettings />Settings</Link>
+        <button to={"/"} onClick={(e) => {
             e.preventDefault()
             console.log("Logging Out");
             isLoggingOut(true);
@@ -59,7 +64,7 @@ function UserNav() {
           }}
           className={clsx('flex items-center gap-3 px-5 py-3 border shadow-sm rounded-xl font-medium hover:bg-theme-lighter hover:text-white transition-all duration-500 ', {
             "justify-center": loggingOut
-          })}>{!loggingOut && <FiLogOut />}{loggingOut ? <TailSpin height={30} width={30} color='#ccc' /> : "Log Out"}</Link>
+          })}>{!loggingOut && <FiLogOut />}{loggingOut ? <TailSpin height={30} width={30} color='#ccc' /> : "Log Out"}</button>
       </div>
     </div>
   )

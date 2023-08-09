@@ -46,8 +46,11 @@ function SignUp() {
                     reset()
                     toast(res.data.message, {type: "error", autoClose: 2000})
                 }
-            }).catch(err => err)
+            }).catch(err => {
+                isSigningIn(false)
+            })
         } catch (error) {
+            isSigningIn(false)
             // console.log("ERROR: " + error);
         }
     }
@@ -65,7 +68,7 @@ function SignUp() {
                 <div>
                     <h1 className="text-2xl font-medium">Create an Account</h1>
                     <p className="text-sm text-gray-500">Start your saving journey</p>
-                    <form onSubmit={handleSubmit(submit)} className='py-8'>
+                    <form onSubmit={handleSubmit(submit)} className='py-8 pb-3'>
                         <div className='py-2'>
                             <label htmlFor="" className='block text-md pb-2'>Full Name:<span className="text-red-600 font-semibold">*</span></label>
                             <input type="text" placeholder='Full Name' className='border w-full p-2 rounded-lg' {...register("full_name")}/>
@@ -93,16 +96,16 @@ function SignUp() {
                         </div>
                         <p className='text-gray-500'>Must be at least 8 Characters</p>
                     
-                        <button className={clsx('text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
+                        <button className={clsx('text-center border shadow-sm w-full py-3 rounded-xl text-white font-medium my-3 mb-0 bg-theme-color hover:bg-white hover:text-black transition-all duration-700 hover:text-[#eee99]', {
                                 "flex justify-center": signingIn
                             })}>
                             {signingIn ? <TailSpin height={30} width={30} color='#ccc' /> : "Sign Up"}
                             </button>
-                        <button className='w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
-                        <Link to={"/auth/login"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
-                            Already have an account? Log In
-                        </Link>
                     </form>
+                    <button className='mt-0 w-full border shadow-sm hover:text-white py-3 rounded-xl text-black font-medium my-3 hover:bg-theme-color hover:opacity-90 transition-all duration-700 hover:text-[#eee99] flex items-center justify-center gap-5'><FcGoogle size={25} />Sign In with Google</button>
+                    <Link to={"/auth/login"} className='cursor-pointer text-theme-color underline text-center block w-max hover:no-underline m-auto'>
+                        Already have an account? Log In
+                    </Link>
                 </div>
                 <img src={img} className="hidden md:block w-[100%] h-[40vw] rounded-md shadow-sm pb-10" alt="" />
             </div>

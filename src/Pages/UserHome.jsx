@@ -72,7 +72,7 @@ function UserHome() {
     } catch (err) { return err };
   }, [])
   return (
-    <div className='w-[90%] m-auto'>
+    <div className='w-[98%] m-auto'>
       <div className="grid gap-10 items-start grid-cols-3">
         <UserNav />
         <div className='flex flex-col col-span-2'>
@@ -103,7 +103,7 @@ function UserHome() {
             <div className='bg-[#F3F8F0] rounded-2xl py-5 px-7 shadow'>
               <div className="flex justify-between items-center font-medium">
                 <h1>Account Balance</h1>
-                <button className='bg-theme-lighter text-white hover:text-black flex items-center gap-2 rounded-md shadow-sm p-2 transition-all duration-700 hover:bg-white'><FaPlus />DEPOSIT</button>
+                <Link to={"/user/deposit"} className='bg-theme-lighter text-white hover:text-black flex items-center gap-2 rounded-md shadow-sm p-2 transition-all duration-700 hover:bg-white'><FaPlus />DEPOSIT</Link>
               </div>
               <h1 className='pt-5 text-theme-color font-semibold text-xl'>₦300,000.54</h1>
               <div className='pt-10 flex justify-end'>
