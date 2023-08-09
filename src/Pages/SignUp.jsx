@@ -44,6 +44,7 @@ function SignUp() {
                 }
                 else{
                     reset()
+                    isSigningIn(false)
                     toast(res.data.message, {type: "error", autoClose: 2000})
                 }
             }).catch(err => {
