@@ -64,7 +64,7 @@ function Navbar() {
           <FaBars size={30} onClick={() => setVisible(true)} className="hover:text-theme-color cursor-pointer transition-all duration-700 md:hidden block" />
         </div>
 
-        <div className={clsx("absolute bg-white w-[60%] md:w-[30%] h-[100%] z-30 transition-all duration-500 border shadow-lg", {
+        <div className={clsx("fixed bg-white w-[60%] md:w-[30%] h-[100%] z-30 transition-all duration-500 border shadow-lg", {
           "top-0 right-0": visible,
           "-right-[100%] top-0": !visible,
         })}>

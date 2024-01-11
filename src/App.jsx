@@ -41,7 +41,7 @@ function App() {
         <Route path='/user/settings' element={isAuth ? <Settings /> : <Navigate to={"/auth/login"} />} />
         <Route path='/auth/login' element={isAuth ? <Navigate to={"/user"} /> : <Login />} />
         <Route path='/auth/signUp' element={isAuth ? <Navigate to={"/user"} /> : <SignUp />} /> 
-        <Route path='*' element={<Error />} />
+        <Route path='/*' element={<Error />} />
       </Routes>
       <Footer />
     </Router>
