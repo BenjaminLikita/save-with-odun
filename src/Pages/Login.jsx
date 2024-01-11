@@ -71,7 +71,7 @@ function Login() {
             <div className='grid md:grid-cols-2 md:gap-20 items-start pt-10'>
                 <div>
                     <h1 className="md:text-2xl sm:text-xl py-1 font-medium">Welcome Back!</h1>
-                    <p className="text-gray-500 md:text-sm sm:text-xs">Welcome back! Please enter your details!</p>
+                    <p className="text-gray-500 md:text-sm sm:text-xs">Please enter your details!</p>
                     <form onSubmit={handleSubmit(submit)} className='py-8 pb-3'>
                         <div className='py-3'>
                             <label htmlFor="" className='block text-xl pb-2'>Email:</label>
