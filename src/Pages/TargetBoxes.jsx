@@ -22,7 +22,7 @@ function TargetBoxes() {
     }, [modal])
 
   return (
-    <div className='w-[98%] m-auto gap-10 grid grid-cols-3'>
+    <div className='w-[98%] m-auto gap-10 grid grid-cols-3 mt-2'>
         <UserNav />
         <div className='col-span-2'>
             <div className='bg-[#F3F8F0] py-5 px-3 rounded-2xl shadow-sm'>

@@ -5,11 +5,11 @@ function Error() {
 
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigate(-1)
-  //   }, 2000)
-  // })
+  useEffect(() => {
+    // setTimeout(() => {
+    //   navigate(-1)
+    // }, 2000)
+  })
   return (
     // <div className='text-center absolute top-[50%] left-[50%] translate-x-[-50%]'>
     <div className='text-center h-[80vh] grid place-items-center'>

@@ -61,19 +61,19 @@ function UserHome() {
     {Saved: 2, week: 11},
     {Saved: 13, week: 12},
   ]
-  useEffect(() => {
-    try {
-      // axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
-      axios.post("https://benjaminlikita.pythonanywhere.com/auth/", {token}).then(res => {
-        if(res.data){
-          dispatch(setUserName(res.data.first_name))
-          dispatch(setEmail(res.data.email))
-        }
-      }).catch(err => err)
-    } catch (err) { return err };
-  }, [])
+  // useEffect(() => {
+  //   try {
+  //     // axios.post("http://13.36.169.10/api/auth/", {token}).then(res => {
+  //     axios.post("https://benjaminlikita.pythonanywhere.com/auth/", {token}).then(res => {
+  //       if(res.data){
+  //         dispatch(setUserName(res.data.first_name))
+  //         dispatch(setEmail(res.data.email))
+  //       }
+  //     }).catch(err => err)
+  //   } catch (err) { return err };
+  // }, [])
   return (
-    <div className='w-[98%] m-auto'>
+    <div className='w-[98%] m-auto mt-2'>
       <div className="grid gap-10 items-start grid-cols-3">
         <UserNav />
         <div className='flex flex-col col-span-2'>

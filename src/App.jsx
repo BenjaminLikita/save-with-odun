@@ -13,13 +13,16 @@ import MyInvestments from './Pages/MyInvestments'
 import History from './Pages/History'
 import Settings from './Pages/Settings'
 import Deposit from './Pages/Deposit'
+import ProtectedRoute from './components/ProtectedRoute'
+import AuthRoute from './components/AuthRoute'
 
 
 
 function App() {
   const [isLoading, setLoading] = useState(true)
 
-  const {token} = useSelector(state => state.user)
+  const token = useSelector(state => state.user)
+  console.log(token);
   const isAuth = Boolean(token)
 
   useEffect(() => {
@@ -32,15 +35,27 @@ function App() {
 
     <Router>
       <Routes>
+
+        {/* Public Routes */}
         <Route path='/' element={<Home />} />
-        <Route path='/user' element={isAuth ? <UserHome /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/user/deposit' element={isAuth ? <Deposit /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/user/my-target-boxes' element={isAuth ? <TargetBoxes /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/user/investments' element={isAuth ? <MyInvestments /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/user/history' element={isAuth ? <History /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/user/settings' element={isAuth ? <Settings /> : <Navigate to={"/auth/login"} />} />
-        <Route path='/auth/login' element={isAuth ? <Navigate to={"/user"} /> : <Login />} />
-        <Route path='/auth/signUp' element={isAuth ? <Navigate to={"/user"} /> : <SignUp />} /> 
+
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path='/user' element={<UserHome />} />
+          <Route path='/user/deposit' element={<Deposit />} />
+          <Route path='/user/my-target-boxes' element={<TargetBoxes />} />
+          <Route path='/user/investments' element={<MyInvestments />} />
+          <Route path='/user/history' element={<History />} />
+          <Route path='/user/settings' element={<Settings />} />
+        </Route>
+        
+        {/* Authentication Routes */}
+        <Route element={<AuthRoute />}>
+          <Route path='/auth/login' element={<Login />} />
+          <Route path='/auth/signUp' element={<SignUp />} /> 
+        </Route>
+
+        {/* Error Route */}
         <Route path='/*' element={<Error />} />
       </Routes>
       <Footer />
