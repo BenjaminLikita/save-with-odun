@@ -7,6 +7,7 @@ import UserNav from '../components/UserNav'
 import userProfile from "../assets/default-image.png"
 import useAuth from '../hooks/useAuth'
 import LineChartComp from '../components/LineChartComp'
+import { ToastContainer } from 'react-toastify'
 
 
 function UserHome() {
@@ -70,6 +71,7 @@ function UserHome() {
   
   return (
     <div className='w-[98%] m-auto mt-0 lg:mt-2'>
+      <ToastContainer />
       <div className="block lg:grid gap-10 items-start grid-cols-3">
         <UserNav />
         <div className='flex flex-col col-span-2'>

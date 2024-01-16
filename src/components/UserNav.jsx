@@ -30,8 +30,9 @@ function UserNav({className=""}) {
     
 
   return (
-    <div className={`lg:sticky flex justify-between items-center w-[100%] lg:block my--3 lg:m-0 top-0 bg-none lg:bg-[#F3F8F0] rounded-2xl shadow-none backdrop:lg:shadow-sm px-3 pt-1 pb-3 ${className}`}>
+    <div>
       <ToastContainer />
+    <div className={`lg:sticky flex justify-between items-center w-[100%] lg:block my--3 lg:m-0 top-0 bg-none lg:bg-[#F3F8F0] rounded-2xl shadow-none backdrop:lg:shadow-sm px-3 pt-1 pb-3 ${className}`}>
       <img src={logo} className='h-20 hidden lg:block my-5' alt="" />
       <div className='flex lg:hidden gap-5 items-center p-2'>
         <img src={userProfile} className='w-[50px] h-[50px] object-cover object-top rounded-full' />
@@ -73,6 +74,7 @@ function UserNav({className=""}) {
       </div>
 
       <FaBars size={30} onClick={() => setVisible(true)} className="hover:text-theme-color cursor-pointer transition-all duration-700 lg:hidden block" />
+    </div>
     </div>
   )
 }
