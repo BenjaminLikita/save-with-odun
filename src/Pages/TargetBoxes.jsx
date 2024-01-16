@@ -22,12 +22,12 @@ function TargetBoxes() {
     }, [modal])
 
   return (
-    <div className='w-[98%] m-auto gap-10 grid grid-cols-3 mt-2'>
+    <div className='w-[98%] m-auto gap-10 block lg:grid grid-cols-3 mt-0 lg:mt-2'>
         <UserNav />
         <div className='col-span-2'>
             <div className='bg-[#F3F8F0] py-5 px-3 rounded-2xl shadow-sm'>
                 <div>
-                    <ul className='w-[100%] sm:w-[100%] lg:w-[90%]  m-auto flex items-center justify-between text-xs font-medium'>
+                    <ul className='w-[100%] lg:w-[90%] m-auto flex items-center justify-betwee text-xs font-medium'>
                         <button className={clsx('border border-[#F3F8F0] p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
                             "bg-theme-lighter text-white": page === "regular-savings"
                         })}

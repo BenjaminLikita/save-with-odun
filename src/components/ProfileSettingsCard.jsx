@@ -11,7 +11,7 @@ const ProfileSettingsCard = () => {
                 <label htmlFor="" className='block text-sm font-semibold py-1'>Your Avatar</label>
                 <div className="flex items-center mt-3 gap-5 w-auto">
                   <label htmlFor="imgFile" className='cursor-pointer flex items-center gap-5'>
-                    <img className='w-[70px] h-[70px] rounded-full' src={image || img} alt="" />
+                    <img className='w-[70px] h-[70px] object-cover object-top rounded-full' src={image || img} alt="" />
                     <span className='bg-theme-color p-3 text-white font-semibold rounded-md'>Upload Image</span>
                   </label>
                   <input type="file" id='imgFile' 

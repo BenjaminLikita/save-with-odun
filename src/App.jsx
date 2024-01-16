@@ -22,7 +22,7 @@ function App() {
   const [isLoading, setLoading] = useState(true)
 
   const token = useSelector(state => state.user)
-  console.log(token);
+  // console.log(token);
   const isAuth = Boolean(token)
 
   useEffect(() => {

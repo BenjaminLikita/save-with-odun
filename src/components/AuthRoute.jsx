@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const AuthRoute = () => {
 
     const {token} = useSelector(state => state.user)
-    console.log(token);
     const location = useLocation()
 
     return (
