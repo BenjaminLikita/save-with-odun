@@ -51,10 +51,10 @@ export const Modal = ({header, text, image1, image2}) => {
 
     return(
         <>
-            <div className='px-5 pt-10 py-5 lg:flex jusify-between gap-10'>
+            <div className='px-5 pt-10 lg:flex jusify-between gap-10'>
                 <div className="">
                     <h1 className='text-theme-color text-2xl font-bold pb-2 lg:pb-5'>{header}</h1>
-                    <p className='pb-4 text-sm'>{text}</p>
+                    <p className='pb-4 text-[12px] lg:text-sm'>{text}</p>
                 </div>
                 <img src={image1} className='w-[100%] lg:w-[50%] object-cover rounded-lg shadow-sm' alt="" />
             </div>

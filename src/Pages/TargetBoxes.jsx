@@ -27,22 +27,22 @@ function TargetBoxes() {
         <div className='col-span-2'>
             <div className='bg-[#F3F8F0] py-5 px-3 rounded-2xl shadow-sm'>
                 <div>
-                    <ul className='w-[100%] lg:w-[90%] m-auto flex items-center justify-betwee text-xs font-medium'>
-                        <button className={clsx('border border-[#F3F8F0] p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
+                    <ul className='w-[100%] lg:w-[90%] m-auto flex items-center justify-between text-[10px] lg:text-sm lg:font-medium'>
+                        <button className={clsx('border border-[#F3F8F0] px-1 py-3 lg:p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
                             "bg-theme-lighter text-white": page === "regular-savings"
                         })}
                         onClick={() => setPage("regular-savings")}>Regular savings</button>
-                        <button className={clsx('border border-[#F3F8F0] p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
+                        <button className={clsx('border border-[#F3F8F0] px-1 py-3 lg:p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
                             "bg-theme-lighter text-white": page === "education"
                         })}
                         onClick={() => setPage("education")}
                         >Education TargetBox</button>
-                        <button className={clsx('border border-[#F3F8F0] p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
+                        <button className={clsx('border border-[#F3F8F0] px-1 py-3 lg:p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
                             "bg-theme-lighter text-white": page === "studentpreneur"
                         })}
                         onClick={() => setPage("studentpreneur")}
                         >Studentpreneur TargetBox</button>
-                        <button className={clsx('border border-[#F3F8F0] p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
+                        <button className={clsx('border border-[#F3F8F0] px-1 py-3 lg:p-3 rounded-lg hover:bg-theme-lighter hover:text-white  transition-all duration-500', {
                             "bg-theme-lighter text-white": page === "investment"
                         })}
                         onClick={() => setPage("investment")}

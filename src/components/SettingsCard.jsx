@@ -5,7 +5,7 @@ import PasswordSettingsCard from './PasswordSettingsCard'
 
 function SettingsCard({title, page}) {
   return (
-    <div className='p-10'>
+    <div className='px-3 lg:px-10 py-10'>
         <h1 className='text-theme-color text-2xl font-bold'>{title}</h1>
         {
           page === "profile-settings" && (

@@ -8,6 +8,7 @@ import { FaBook, FaBookOpen, FaPersonBooth } from 'react-icons/fa'
 import { GoPerson } from 'react-icons/go'
 import { HiOutlineChartBar } from 'react-icons/hi'
 import { GiTakeMyMoney } from 'react-icons/gi'
+import Footer from '../components/Footer'
 
 function Home() {
 
@@ -45,6 +46,7 @@ function Home() {
         }/>
       </div>
       </div>
+      <Footer />
     </div>
   )
 }

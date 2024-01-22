@@ -8,7 +8,8 @@ import userProfile from "../assets/default-image.png"
 import useAuth from '../hooks/useAuth'
 import LineChartComp from '../components/LineChartComp'
 import { ToastContainer } from 'react-toastify'
-
+import { TbPigMoney, TbHistory, TbTarget, TbDotsVertical } from 'react-icons/tb'
+import clsx from 'clsx'
 
 function UserHome() {
   
@@ -112,11 +113,11 @@ function UserHome() {
             </div>
           </div>
           
-          <div className="pt-5">
-            <div className='bg-[#F3F8F0] rounded-2xl py-5 shadow'>
-              <LineChartComp chartData={userData} screenSize={windowDimension} />
-            </div>
+          <div className='bg-[#F3F8F0] hidden lg:block rounded-2xl mt-5 py-5 shadow'>
+            <LineChartComp chartData={userData} screenSize={windowDimension} />
           </div>
+
+          <UserHomeMobileComponent />
           
         </div>
 
@@ -127,3 +128,88 @@ function UserHome() {
 }
 
 export default UserHome
+
+
+
+const UserHomeMobileComponent = () => {
+
+  const [view, setView] = useState("savings")
+
+  const saveCards = [
+    {title: "2024: No gree!", subTitle: "Regular Savings", percentCompleted: 100},
+    {title: "For school Fees", subTitle: "Target Savings", percentCompleted: 67},
+    {title: "Aishas Birthday", subTitle: "Target Savings", percentCompleted: 42},
+  ]
+
+  const spotlightCards = [
+    {title: "SETTING GOALS", src: "/src/assets/setting-goals.png"},
+    {title: "BUDGETTING 101", src: "/src/assets/budgetting.png"}
+  ]
+  
+  return (
+    <div className="block lg:hidden mt-5 p-2">
+      <div className='flex justify-center items-center gap-10 md:gap-20'>
+        <button onClick={() => setView("savings")} className={`${view === "savings" ? "bg-[#F3F8F0]" : "bg-[#D9D9D9]"} py-3 px-10 text-xs`}>SAVINGS</button>
+        <button onClick={() => setView("spotlight")} className={`${view === "spotlight" ? "bg-[#F3F8F0]" : "bg-[#D9D9D9]"} py-3 px-10 text-xs`}>SPOTLIGHT</button>
+
+      </div>
+      {
+        view === "savings" && (
+          <div>
+            <button className='bg-theme-lighter text-white font-medium w-[70%] m-auto my-5 p-4 rounded-lg  flex gap-5 justify-center items-center'><FaPlus />New Savings Target</button>
+
+            <div className='h-[300px]'>
+              <h3 className='font-bold py-2'>My Current Savings</h3>
+              <div className='flex flex-col gap-5 py-5'>
+                {saveCards.map(item => (
+                  <div className={clsx("flex rounded-lg shadow py-10 px-7", {
+                    ["bg-[#FFF3F0]"] : item.percentCompleted < 100,
+                    ["bg-[#E8FCFD]"] : item.percentCompleted === 100,
+                  })}>
+                    <div className="px-5">
+                      {
+                        item.subTitle === "Regular Savings" ?
+                        <TbPigMoney size={30} />
+                        :
+                        <TbTarget size={30} />                      
+                      }
+                    </div>
+                    <div className="grow-[2] flex flex-col gap-7">
+                      <h1 className='font-semibold'>{item.title}</h1>
+                      <p>{item.subTitle}</p>
+                    </div>
+                    { 
+                      item.percentCompleted !== 100 && (
+                      <div className="grow-[2] self-center flex flex-col gap-5">
+                        <h1>{item.percentCompleted}% complete</h1>
+                        <div className={`w-[100%] h-2 rounded relative bg-[#C7B9B9] after:absolute after:top-0 after:left-0 after:bg-[#14B84B] after:w-[${item.percentCompleted}%] after:h-2 after:rounded`}></div>
+                      </div>
+                      )
+                    }
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )
+      }
+      {
+        view === "spotlight" && (
+          <div className='flex flex-col gap-5 my-3'>
+            {
+              spotlightCards.map(item => (
+                <Link to={""} className='relative'>
+                  <div className='absolute right-5 top-6 cursor-pointer p-3 rounded-full text-white hover:text-black hover:bg-white transition-all duration-500'>
+                    <TbDotsVertical size={30} />
+                  </div>
+                  <h1 className='absolute bottom-6 left-5 font-semibold text-white text-3xl'>{item.title}</h1>
+                  <img className='w-[100%]' src={item.src}/>
+                </Link>
+              ))
+            }
+          </div>
+        )
+      }
+    </div>
+  )
+}

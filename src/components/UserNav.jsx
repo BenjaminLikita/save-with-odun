@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { clearData } from '../Slices/userSlice';
-import { Link, Router, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from "../assets/ODUNinv.png"
 import { BiSolidDashboard, BiSearch, BiBell } from 'react-icons/bi'
 import { TbPigMoney, TbHistory, TbTarget } from 'react-icons/tb'
@@ -32,10 +32,10 @@ function UserNav({className=""}) {
   return (
     <div>
       <ToastContainer />
-    <div className={`lg:sticky flex justify-between items-center w-[100%] lg:block my--3 lg:m-0 top-0 bg-none lg:bg-[#F3F8F0] rounded-2xl shadow-none backdrop:lg:shadow-sm px-3 pt-1 pb-3 ${className}`}>
+    <div className={`lg:sticky flex justify-between items-center w-[100%] lg:block lg:m-0 top-0 bg-none lg:bg-[#F3F8F0] rounded-2xl shadow-none backdrop:lg:shadow-sm px-3 pt-1 pb-3 ${className}`}>
       <img src={logo} className='h-20 hidden lg:block my-5' alt="" />
-      <div className='flex lg:hidden gap-5 items-center p-2'>
-        <img src={userProfile} className='w-[50px] h-[50px] object-cover object-top rounded-full' />
+      <div className='flex lg:hidden gap-3 items-center pt-2'>
+        <img src={userProfile} className='w-[40px] h-[40px] object-cover object-top rounded-full' />
         <h1 className='font-medium'>{userName}</h1>
       </div>
       <div className={clsx("fixed lg:relative flex flex-col gap-4 top-0 bg-[#F3F8F0] lg:bg-none px-5 py-20 lg:py-10 lg:px-0 shadow-xl lg:shadow-none rounded-lg h-[100%] lg:h-auto z-30 transition-all duration-300", {
@@ -80,3 +80,5 @@ function UserNav({className=""}) {
 }
 
 export default UserNav
+
+

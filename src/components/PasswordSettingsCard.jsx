@@ -3,17 +3,17 @@ import React from 'react'
 const PasswordSettingsCard = () => {
   return (
     <div>
-        <form action="" className='flex flex-col gap-5 my-3'>
+        <form action="" className='flex flex-col gap-7 my-3'>
           <div>
-            <label htmlFor="" className='block text-sm font-semibold py-1'>Current Password</label>
+            <label htmlFor="" className='block text-sm lg:text-lg font-semibold py-1'>Current Password</label>
             <input type="text" name='currentPassword' className='bg-theme-light px-3 py-2 rounded-lg w-full focus:outline-none' />
           </div>
           <div>
-            <label htmlFor="" className='block text-sm font-semibold py-1'>New Password</label>
+            <label htmlFor="" className='block text-sm lg:text-lg font-semibold py-1'>New Password</label>
             <input type="text" name='newPassword' className='bg-theme-light px-3 py-2 rounded-lg w-full focus:outline-none' />
           </div>
           <div>
-            <label htmlFor="" className='block text-sm font-semibold py-1'>Confirm New Password</label>
+            <label htmlFor="" className='block text-sm lg:text-lg font-semibold py-1'>Confirm New Password</label>
             <input type="text" name='confirmNewPassword' className='bg-theme-light px-3 py-2 rounded-lg w-full focus:outline-none' />
           </div>
           
