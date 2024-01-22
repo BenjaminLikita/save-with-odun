@@ -162,7 +162,7 @@ const UserHomeMobileComponent = () => {
               <h3 className='font-bold py-2'>My Current Savings</h3>
               <div className='flex flex-col gap-5 py-5'>
                 {saveCards.map(item => (
-                  <div className={clsx("flex rounded-lg shadow py-10 px-7", {
+                  <div className={clsx("flex rounded-lg shadow py-10 pr-5 md:pr-10 ", {
                     ["bg-[#FFF3F0]"] : item.percentCompleted < 100,
                     ["bg-[#E8FCFD]"] : item.percentCompleted === 100,
                   })}>
@@ -174,7 +174,7 @@ const UserHomeMobileComponent = () => {
                         <TbTarget size={30} />                      
                       }
                     </div>
-                    <div className="grow-[2] flex flex-col gap-7">
+                    <div className="grow-[2] flex flex-col gap-3 md:gap-7">
                       <h1 className='font-semibold'>{item.title}</h1>
                       <p>{item.subTitle}</p>
                     </div>
