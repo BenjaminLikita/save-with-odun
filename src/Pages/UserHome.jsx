@@ -10,6 +10,8 @@ import LineChartComp from '../components/LineChartComp'
 import { ToastContainer } from 'react-toastify'
 import { TbPigMoney, TbHistory, TbTarget, TbDotsVertical } from 'react-icons/tb'
 import clsx from 'clsx'
+import budgetting from "../assets/budgetting.png"
+import settingGoals from "../assets/setting-goals.png"
 
 function UserHome() {
   
@@ -142,8 +144,8 @@ const UserHomeMobileComponent = () => {
   ]
 
   const spotlightCards = [
-    {title: "SETTING GOALS", src: "/src/assets/setting-goals.png"},
-    {title: "BUDGETTING 101", src: "/src/assets/budgetting.png"}
+    {title: "SETTING GOALS", src: settingGoals},
+    {title: "BUDGETTING 101", src: budgetting}
   ]
   
   return (
@@ -162,11 +164,11 @@ const UserHomeMobileComponent = () => {
               <h3 className='font-bold py-2'>My Current Savings</h3>
               <div className='flex flex-col gap-5 py-5'>
                 {saveCards.map(item => (
-                  <div className={clsx("flex rounded-lg shadow py-10 pr-5 md:pr-10 ", {
+                  <div className={clsx("flex rounded-lg shadow py-10 gap-5 pr-5 md:pr-10 ", {
                     ["bg-[#FFF3F0]"] : item.percentCompleted < 100,
                     ["bg-[#E8FCFD]"] : item.percentCompleted === 100,
                   })}>
-                    <div className="px-5">
+                    <div className="px-3 md:px-5 pr-0">
                       {
                         item.subTitle === "Regular Savings" ?
                         <TbPigMoney size={30} />
@@ -180,9 +182,9 @@ const UserHomeMobileComponent = () => {
                     </div>
                     { 
                       item.percentCompleted !== 100 && (
-                      <div className="grow-[2] self-center flex flex-col gap-5">
-                        <h1>{item.percentCompleted}% complete</h1>
-                        <div className={`w-[100%] h-2 rounded relative bg-[#C7B9B9] after:absolute after:top-0 after:left-0 after:bg-[#14B84B] after:w-[${item.percentCompleted}%] after:h-2 after:rounded`}></div>
+                      <div className="grow-[2] self-center flex flex-col gap-2 md:gap-5">
+                        <h1 className='text-sm md:text-base'>{item.percentCompleted}% complete</h1>
+                        <div className={`w-[100%] h-1 md:h-2 rounded relative bg-[#C7B9B9] after:absolute after:top-0 after:left-0 after:bg-[#14B84B] after:w-[${item.percentCompleted}%] after:h-1 after:md:h-2 after:rounded`}></div>
                       </div>
                       )
                     }
