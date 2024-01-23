@@ -184,7 +184,7 @@ const UserHomeMobileComponent = () => {
                       item.percentCompleted !== 100 && (
                       <div className="grow-[2] self-center flex flex-col gap-2 md:gap-5">
                         <h1 className='text-sm md:text-base'>{item.percentCompleted}% complete</h1>
-                        <div className={`w-[100%] h-1 md:h-2 rounded relative bg-[#C7B9B9] after:absolute after:top-0 after:left-0 after:bg-[#14B84B] after:w-[${item.percentCompleted}%] after:h-1 after:md:h-2 after:rounded`}></div>
+                        <div className={`w-[100%] h-1 md:h-2 rounded relative bg-[#C7B9B9] after:absolute after:top-0 after:left-0 after:bg-[#14B84B] after:w-[${item.percentCompleted}%] after:z-20 after:h-1 after:md:h-2 after:rounded`}></div>
                       </div>
                       )
                     }
