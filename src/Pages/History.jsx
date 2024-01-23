@@ -8,6 +8,7 @@ function History() {
     {date: "12th Jan, 2024", 
       hist: [
         {title: "For School Fees", type: "Deposit", amount: "3000.00"},
+        {title: "Regular Withdrawal", type: "Withdrawal", amount: "1000.00"},
         {title: "Aishas Birthday", type: "Deposit", amount: "500.00"}
     ]},
     {date: "10th Jan, 2024", 
@@ -21,16 +22,25 @@ function History() {
     ]},
   ]
 
-  
-  const deposits = history.filter(entry => 
-    entry.hist.some(transaction => transaction.type === "Deposit")
-  );
+  const deposits = []
+  const withdrawals = []
 
-  const withdrawals = history.filter(entry => 
-    entry.hist.some(transaction => transaction.type === "Withdrawal")
-  );
+  history.map((item, i) => {
+    const temp1 = {}
+    const temp2 = {}
+    temp1["date"] = temp2["date"] = item.date
+    temp1["hist"] = item.hist.filter(item => item.type === "Deposit")
+    temp2["hist"] = item.hist.filter(item => item.type === "Withdrawal")
+    if(temp1["hist"].length !== 0){
+      deposits.push(temp1)
+    }
+    if(temp2["hist"].length !== 0){
+      withdrawals.push(temp2)
+    }
+  })
 
-  console.log("filtered data", deposits);
+  console.log("deposits", deposits)
+  console.log("withdrawals", withdrawals)
 
   const [view, setView] = useState("all")
 

@@ -77,7 +77,7 @@ function UserHome() {
       <ToastContainer />
       <div className="block lg:grid gap-10 items-start grid-cols-3">
         <UserNav />
-        <div className='flex flex-col col-span-2'>
+        <div className='flex flex-col col-span-2 mb-5'>
             <div className='hidden lg:flex items-center py-4 bg-[#F3F8F0] px-3 rounded-2xl shadow-sm'>
               <div className='flex items-center gap-3'>
                 <img src={userProfile} className='w-[50px] h-[50px] object-cover object-top rounded-full' />
