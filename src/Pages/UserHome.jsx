@@ -164,7 +164,7 @@ const UserHomeMobileComponent = () => {
               <h3 className='font-bold py-2'>My Current Savings</h3>
               <div className='flex flex-col gap-5 py-5'>
                 {saveCards.map(item => (
-                  <div className={clsx("flex rounded-lg shadow py-10 gap-5 pr-5 md:pr-10 ", {
+                  <div className={clsx("flex rounded-md shadow py-10 gap-5 pr-5 md:pr-10 ", {
                     ["bg-[#FFF3F0]"] : item.percentCompleted < 100,
                     ["bg-[#E8FCFD]"] : item.percentCompleted === 100,
                   })}>
